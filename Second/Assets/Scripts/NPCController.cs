@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    static string [] talkText = {"Hi", "Hello", "Test", "Done"};
-    private int talkTextLength = talkText.Length;
+    string [] talkText = {"Hi", "Hello", "Test", "Done"};
+    private int talkTextLength;
     private int talkTextIndex = 0;
+    protected Vector2 pos;
 
+    private void Start()
+    {
+        talkTextLength = talkText.Length;
+        pos = transform.position;
+    }
 
     public Tuple<string,bool> Interact()
     {

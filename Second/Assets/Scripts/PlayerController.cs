@@ -65,16 +65,10 @@ public class PlayerController : MonoBehaviour
             {
                 isControllable = true;
                 textBox.SetActive(false);
-                //hide textbox
                 return;
             }
-
             textBox.SetActive(true);
-
             textBox.GetComponentInChildren<Text>().text = textInfo.Item1;
-            
-            
-            Debug.Log("Hello");
         }
     }
 

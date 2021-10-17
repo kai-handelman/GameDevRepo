@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\NPCController.cs" />
+     <Compile Include="Assets\Scripts\NPCFollow.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
