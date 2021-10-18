@@ -46,7 +46,8 @@ public class NPCGotoPlayer : StateMachineBehaviour
             if (dummy > path.Length - 2)//Stopping Condition is incorrect
             {
                 Debug.Log("Go To Stopping");
-                animator.SetBool("FoundPlayer",true);
+                
+                animator.SetInteger("Stage",2);
                 return;
             }
         }

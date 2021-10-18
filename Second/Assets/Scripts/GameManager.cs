@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject textBox;
     [SerializeField] private GameObject player;
     private bool talking;
+    private bool wasCaught;
 
     private void Start()
     {
@@ -49,12 +50,16 @@ public class GameManager : MonoBehaviour {
 
     public void ShowText(string displayText, bool done)
     {
-        
-        SetTalking(true);
+
+        talking = true;
         if (done)//Text has ended hid text box and make character is controllable now
         {
-            Debug.Log("ji");
             textBox.SetActive(false);
+            if(wasCaught)
+            {
+                player.GetComponent<PlayerController>().MoveContoller(true,new Vector2(0,-1));
+            }   
+            wasCaught = false;
             SetTalking(false);
             return;
         }
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour {
         talking = t;
         if (t)
         {
+            wasCaught = true;
             player.GetComponentInChildren<Animator>().SetBool("Moving",false);
         }
     }

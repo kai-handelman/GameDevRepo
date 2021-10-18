@@ -23,7 +23,6 @@ public class Astar
     {
         //if (!IsValidPath(grid, start, end))
         //     return null;
-        Debug.Log("Made it here");
         Spot End = null;
         Spot Start = null;
         var columns = Spots.GetUpperBound(0) + 1;

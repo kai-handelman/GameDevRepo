@@ -17,8 +17,6 @@ public class GoBackToIdle : StateMachineBehaviour {
         
         path = animator.transform.gameObject.GetComponent<NPCFollow>().catchPlayer(IdlePosition);
         curGoal = path[0];
-        Debug.Log("Going to:" + curGoal);
-            
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,18 +25,20 @@ public class GoBackToIdle : StateMachineBehaviour {
         if (Vector3.Distance(t.position, curGoal) <= 0.05f)
         {
             dummy++;
-            curGoal = path[dummy];
-            if (dummy == path.Length - 2)
+            
+            if (dummy == path.Length)
             {
-                animator.SetBool("GoToIdlePosition",true);
-                animator.SetBool("FoundPlayer",false);
-                animator.SetBool("Searching",true);
+                animator.SetInteger("Stage",0);
+                
+            }
+            else
+            {
+                curGoal = path[dummy];
             }
         }
         else
         {
             t.position = Vector3.MoveTowards(t.position, curGoal, MoveSpeed);
-            Debug.Log(curGoal);
         }
     }
 

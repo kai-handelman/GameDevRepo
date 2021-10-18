@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform movePoint;
     [SerializeField] private LayerMask block;
     [SerializeField] private LayerMask interActableObjects;
+    [SerializeField] private LayerMask teleporter;
     [SerializeField] private GameObject textBox;
 
     private bool isControllable = true;
@@ -33,6 +34,21 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(t.position, movePoint.position) <= 0.05f) // If not true char is mid movement
         {
             isControllable = true;
+            if (Physics2D.Raycast(t.position, dir, 0.1f, teleporter))
+            {
+                if (Mathf.Abs(t.position.y + 15) < 1)
+                {
+                    t.position = new Vector2(-57, -6);
+                    movePoint.position = new Vector2(-57, -6);
+                    // Debug.Log("Going to Room");
+                }
+                else
+                {
+                    t.position = new Vector2(-23, -16);
+                    movePoint.position = new Vector2(-23, -16);
+                    // Debug.Log("Leaving Room");
+                }
+            }
         }
         else
         {

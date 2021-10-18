@@ -21,7 +21,7 @@ public class NPCPatrol : StateMachineBehaviour {
             rcH = Physics2D.Raycast(coord, Vector2.up,0.1f);;
             if (rcH && rcH.transform.CompareTag("Player"))
             {
-                animator.SetBool("Searching",false);
+                animator.SetInteger("Stage",1);
                 return;
             }
         }

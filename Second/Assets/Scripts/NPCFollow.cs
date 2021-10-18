@@ -23,7 +23,7 @@ public class NPCFollow : NPCController {
 
     void Start()
     {
-        
+        talkText = new String[] {"Sorry","Can't Let you pass","You'll have to go around"};
         moveNPC.parent = null;
         asm = GetComponent<AStarManager>();
         // talkTextLength = talkText.Length;

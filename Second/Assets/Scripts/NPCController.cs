@@ -30,6 +30,7 @@ public class NPCController : MonoBehaviour
         {
             talkTextIndex = 0;
             gm.GetComponent<GameManager>().ShowText("", true);
+            GetComponent<Animator>().SetInteger("Stage",3);
             return;
         }
 
@@ -40,7 +41,6 @@ public class NPCController : MonoBehaviour
     public void engage()
     {
         gm.GetComponent<GameManager>().SetTalking(true);
-        
     }
     
     

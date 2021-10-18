@@ -52,18 +52,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\GoBackToIdle.cs" />
      <Compile Include="Assets\Scripts\DataManager.cs" />
+     <Compile Include="Assets\NPCGotoPlayer.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\NPCFollow.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimatorController.cs" />
+     <Compile Include="Assets\WaitForDialogue.cs" />
      <Compile Include="Assets\Scripts\AStarManager.cs" />
+     <Compile Include="Assets\NPCPatrol.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\NPCController.cs" />
      <Compile Include="Assets\Scripts\Astar.cs" />
-     <Compile Include="Assets\NPCPatrol.cs" />
-     <Compile Include="Assets\NPCGotoPlayer.cs" />
-     <Compile Include="Assets\GoBackToIdle.cs" />
-     <Compile Include="Assets\WaitForDialogue.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
