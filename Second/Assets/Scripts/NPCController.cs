@@ -5,26 +5,43 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    string [] talkText = {"Hi", "Hello", "Test", "Done"};
-    private int talkTextLength;
+    protected string [] talkText = {"Hi", "Hello", "Test", "Done"};
+    protected int talkTextLength;
     private int talkTextIndex = 0;
     protected Vector2 pos;
+    public GameObject gm;
 
     private void Start()
     {
-        talkTextLength = talkText.Length;
-        pos = transform.position;
+        bConstruc();   
+        // talkTextIndex = 0;
     }
 
-    public Tuple<string,bool> Interact()
+    protected void bConstruc()
     {
-        if (talkTextIndex + 1 > talkTextLength)
+        talkTextLength = talkText.Length;
+        pos = transform.position;
+        gm = GameObject.FindGameObjectWithTag("GameController");
+    }
+
+    public void Interact()
+    {
+        if (talkTextIndex == talkTextLength)
         {
             talkTextIndex = 0;
-            return  Tuple.Create("", false);
+            gm.GetComponent<GameManager>().ShowText("", true);
+            return;
         }
-        var interactInfo = Tuple.Create( talkText[talkTextIndex], true);
-        talkTextIndex += 1;
-        return interactInfo;
+
+        gm.GetComponent<GameManager>().ShowText(talkText[talkTextIndex],false);
+        talkTextIndex++;
     }
+
+    public void engage()
+    {
+        gm.GetComponent<GameManager>().SetTalking(true);
+        
+    }
+    
+    
 }
